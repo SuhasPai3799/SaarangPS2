@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Event Registration</title>
+</head>
+<body >
+<div id="try">
+<h1>Registrations for Saarang Events</h1>
+<form class="inputdata1" id="inputdata1">
+<input type="text" 	name="First_Name" id="First_Name" placeholder="First Name" autocomplete="off" class="inputdata" onkeyup="capitalize(id)" required=""><br>
+<p id="Error_Msg" class="Errors">This field cannot be empty!</p>
+<input type="text" name="Last_Name" id="Last_Name" autocomplete="off" placeholder="Last Name" class="inputdata" onkeyup="capitalize(id)"><br>
+<p id="Error_Msg2" class="Errors">This field cannot be empty!</p>
+<input type="text" required pattern="\d*" autocomplete="off" placeholder="Phone Number" name="Phone_Number" id="Phone_Number" class="inputdata" maxlength="10" ><br>
+<p id="Error_Msg4" class="Errors">This field must contain exactly 10 digits!</p>
+<p id="Error_Msg5" class="Errors">This field cannot have alphabets</p>
+<input  type="text" autocomplete="off" placeholder="Email ID" name="EmailID" id="EmailID" class="inputdata" ><br>
+<p id="Error_Msg6" class="Errors">This field must hava a valid email ID</p>
+<input type="text" required pattern="\d*" autocomplete="off" placeholder="Accomodation(No. of Days)" name="Accomodation" id="Accomodation" class="inputdata" maxlength="1" ><br>
+<p id="Error_Msg9" class="Errors">This field must contain exactly 1 digit!</p>
+<input list="Events" placeholder="Events" name="Events" class="inputdata" id="List"><br>
+<datalist id="Events">
+	<option value="Cubing"/>
+	<option value="Singing">
+	<option value="Dance(Solo)">
+	<option value="Dance(Group)">
+	<option value="Fashion Show">
+	<option value="Quiz">
+	<option value="Debate">
+</datalist>
+<input type="password" name="Password1" placeholder="Password" id="Password1" class="inputdata"><img id="toggler1" src="pass.png" onclick="change(1)"><br/>
+<p id="Error_Msg7" class="Errors">Password must be atleast 6 characters long</p>
+<input type="password" name="Password2" placeholder="Confirm Password" id="Password2" class="inputdata"><img id="toggler2" src="pass.png" onclick="change(2)"><br/>
+<p id="Error_Msg8" class="Errors">Make sure you have entered password correctly</p>
+<button type="button" class="inputdata" id="validateb" onclick="validate()">Validate</button>
+<input type="Submit" name="Submit_Button" id="Submit_Button" class="inputdata" >
+</form>
+<p id="payment"></p>
+</div>
+<style type="text/css">
+	#try{
+		width:100%;
+	}
+	#toggler1{
+		height: 20px;
+		width: 20px;
+		position: relative;
+		right:25px;
+		top:5px;
+
+	}
+	#toggler2{
+		height: 20px;
+		width: 20px;
+		position: relative;
+		right:25px;
+		top:5px;
+
+	}
+	h1{
+		color: white;
+	}
+	html {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+	body{
+		
+		
+		background-image: url("31.jpg") ;
+		background-size: cover;
+		background-repeat: no-repeat; 	
+	}
+	#validateb{
+		color:black;
+		position: relative;
+		left:48px;
+	}
+	.inputdata{
+		margin-bottom: 5px;
+		margin-left: 34px;
+		padding:5px;
+	
+
+	}
+	.Errors{
+		padding: none;
+		font-size: 10px;
+		display: none;
+		color: white;
+		position:relative;
+		left:34px;
+	}
+	h1	{
+		text-align: center;
+	}
+	#inputdata1{
+		font-family: cursive;
+		border-bottom: :1px solid black;
+		max-width: 250px;
+		position: relative;
+		top: 50px;
+		padding: 5px 0px 5px 5px;
+		color: black;
+		display: block;
+		background: transparent;
+		opacity: 0.7;
+		margin-bottom:5px;
+
+	}
+	#First_Name{
+ 
+		color: black;
+		border:transparent;
+		border-radius: 5px;
+
+	}
+	#Last_Name{
+		
+		color: black;
+		border:transparent;
+		border-radius: 5px;
+	}
+	#Phone_Number{
+		
+		color: black;
+		border:transparent;
+		border-radius: 5px;
+	}
+	#Accomodation{
+		color: black;
+		border:transparent;
+		border-radius: 5px;	
+	}
+	#Submit_Button{
+	 	
+		display: none;
+		background-color: gray;
+		position: relative;
+		left:50px;
+		color: white;
+		
+
+	}
+	#Password1{
+		color: black;
+		border:transparent;
+		border-radius: 5px;
+		
+	}
+	#Password2{
+		color: black;
+		border:transparent;
+		border-radius: 5px;
+		
+	}
+	#EmailID{
+		
+		color: black;
+		border:transparent;
+		border-radius: 5px;
+	}
+	#List{
+
+		color: black;
+		border:transparent;
+		border-radius: 5px;
+	}
+	::-webkit-input-placeholder{
+		color: black;
+
+	}
+</style>
+<script type="text/javascript">
+		function getWidth() {
+  return Math.max(
+    document.body.scrollWidth,
+    document.documentElement.scrollWidth,
+    document.body.offsetWidth,
+    document.documentElement.offsetWidth,
+    document.documentElement.clientWidth
+  				);
+							}
+
+		console.log(document.getElementById("inputdata1"))
+		var x=screen.width;
+		//console.log(x);
+		document.getElementById("inputdata1").style.left=((getWidth()/2)-125).toString()+"px";
+		function change(x)
+		{
+			
+			var g=document.getElementById("Password"+x.toString())
+			if(g.type==="password")
+				{
+					g.type="text";
+					document.getElementById("toggler"+x.toString()).src="pass1.png"
+				}
+			else
+				{
+					g.type="password";
+					document.getElementById("toggler"+x.toString()).src="pass.png";
+				}
+		}
+		function validate()
+	{
+		ctr=0;
+		if(document.getElementById('First_Name').value.length==0)
+				{
+					document.getElementById('Error_Msg').style.display="block";
+					document.getElementById('First_Name').style.border= "1px solid red";
+					ctr++;
+				}
+		else
+				{
+					document.getElementById('Error_Msg').style.display="none";
+					document.getElementById('First_Name').style.border= "1px solid black";
+				}
+
+		if(document.getElementById('Last_Name').value.length==0)
+			{
+				document.getElementById('Error_Msg2').style.display="block";
+				document.getElementById('Last_Name').style.border= "1px solid red";
+				ctr++;
+			}
+		else
+				{
+					document.getElementById('Error_Msg2').style.display="none";
+					document.getElementById('Last_Name').style.border= "1px solid black";
+				}
+		
+		if(document.getElementById('Phone_Number').value.length==10)
+		{
+		
+			
+			document.getElementById('Error_Msg4').style.display="none"
+			document.getElementById('Phone_Number').style.border= "1px solid black";
+			
+		}
+		else
+			{
+				document.getElementById('Error_Msg4').style.display="block";
+					document.getElementById('Phone_Number').style.border= "1px solid red";
+				ctr++;
+			}
+	
+		if(isNaN(document.getElementById('Phone_Number').value))
+		{
+				document.getElementById('Error_Msg5').style.display="block"
+				document.getElementById('Phone_Number').style.border= "1px solid red";
+				ctr++;
+		}
+		else
+				{
+					document.getElementById('Error_Msg5').style.display="none";
+						
+					}
+
+		if(isNaN(document.getElementById('Accomodation').value)||document.getElementById('Accomodation').value.length!=1)
+		{
+				document.getElementById('Error_Msg9').style.display="block"
+				document.getElementById('Accomodation').style.border= "1px solid red";
+				ctr++;
+		}
+		else
+				{
+					document.getElementById('Error_Msg9').style.display="none";
+						
+					}
+
+
+		var emailchar=document.getElementById("EmailID").value;
+		if(emailchar.indexOf("@")<0 || emailchar.indexOf(".")<0)
+			{
+				document.getElementById("Error_Msg6").style.display="block"
+					document.getElementById('EmailID').style.border= "1px solid red";
+				ctr++;}
+
+		else
+			{
+				d=emailchar.indexOf(".")-emailchar.indexOf("@")
+				end=emailchar.length-emailchar.indexOf(".")
+				if(d<2||end<3)
+					{
+						document.getElementById("Error_Msg6").style.display="block"
+						document.getElementById('EmailID').style.border= "1px solid red";
+						ctr++;}
+
+				else
+					{
+						document.getElementById("Error_Msg6").style.display="none";
+						document.getElementById('EmailID').style.border= "1px solid black";
+					}
+
+			}
+			if(document.getElementById("Password1").value.length<6)
+			{
+					document.getElementById("Error_Msg7").style.display="block"
+					document.getElementById('Password1').style.border= "1px solid red";
+				
+						ctr++;
+			}
+			else
+					{
+						document.getElementById("Error_Msg7").style.display="none"
+						document.getElementById('Password1').style.border= "1px solid black";}
+			if(document.getElementById("Password2").value==document.getElementById("Password1").value && document.getElementById("Password1").length!=0)
+				{
+					document.getElementById("Error_Msg8").style.display="none"
+					document.getElementById('Password2').style.border= "1px solid black";
+				}
+			else
+				{
+					document.getElementById("Error_Msg8").style.display="block"
+					document.getElementById('Password2').style.border= "1px solid red";
+					ctr++;
+				}
+
+		if(ctr==0)
+			{
+				document.getElementById("Submit_Button").style.display="block"
+				document.getElementById("validateb").style.display="none";
+				var money=Number(document.getElementById("Accomodation").value)*1000+350;
+				document.getElementById("payment").innerHTML="Please refer to the email we've sent and proceed to pay an amount of "+money.toString()+" for the Accomodation and the selected event";
+			}
+
+
+
+	}
+	function capitalize(x)
+	{
+		if(document.getElementById(x).value.length==1)
+		document.getElementById(x).value=document.getElementById(x).value.toUpperCase()
+	}
+</script>
+</body>
+</html>
+		
