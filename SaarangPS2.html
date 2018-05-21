@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta name="viewport" content="width=device-width,initial-scale=1">
-	 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<meta name="viewport" content="width=device-width,initial-scale=1"><!-- Allowing mobiles to zoom -->
+	 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"><!-- Bootstrap,to make the site responsive to screen size changes -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script><!-- Bootstrap -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script><!-- Bootstrap -->
 	<title>Event Registration</title>
 </head>
 <body >
 <div id="try">
-<h1>Registrations for Saarang Events</h1>
-<div class="col-xs-offset-5">
+<h1>Registrations for Saarang Events</h1><!-- Heading -->
+<div class="col-xs-offset-5"><!-- offsetting the text-boxes -->
 
 <form class="inputdata1" id="inputdata1">
-<input type="text" 	name="First_Name" id="First_Name" placeholder="First Name" autocomplete="off" class="inputdata" onkeyup="capitalize(id)" required=""><br>
-<p id="Error_Msg" class="Errors">This field cannot be empty!</p>
-<input type="text" name="Last_Name" id="Last_Name" autocomplete="off" placeholder="Last Name" class="inputdata" onkeyup="capitalize(id)"><br>
+<input type="text" 	name="First_Name" id="First_Name" placeholder="First Name" autocomplete="off" class="inputdata" onkeyup="capitalize(id)" required=""><br><!-- Capitalizing first letter in input -->
+<p id="Error_Msg" class="Errors">This field cannot be empty!</p><!-- Error Messages -->
+<input type="text" name="Last_Name" id="Last_Name" autocomplete="off" placeholder="Last Name" class="inputdata" onkeyup="capitalize(id)"><br><!-- Capitalizing first letter in input -->
 <p id="Error_Msg2" class="Errors">This field cannot be empty!</p>
 <input type="text" required pattern="\d*" autocomplete="off" placeholder="Phone Number" name="Phone_Number" id="Phone_Number" class="inputdata" maxlength="10" ><br>
 <p id="Error_Msg4" class="Errors">This field must contain exactly 10 digits!</p>
@@ -25,7 +25,7 @@
 <input type="text" required pattern="\d*" autocomplete="off" placeholder="Accomodation(No. of Days)" name="Accomodation" id="Accomodation" class="inputdata" maxlength="1" ><br>
 <p id="Error_Msg9" class="Errors">This field must contain exactly 1 digit!</p>
 <input list="Events" placeholder="Events" name="Events" class="inputdata" id="List"><br>
-<datalist id="Events">
+<datalist id="Events"><!-- Datalist for autocompleting on typing -->
 	<option value="Cubing"/>
 	<option value="Singing">
 	<option value="Dance(Solo)">
@@ -34,20 +34,27 @@
 	<option value="Quiz">
 	<option value="Debate">
 </datalist>
-<input type="password" name="Password1" placeholder="Password" id="Password1" class="inputdata"><img id="toggler1" src="pass.png" onclick="change(1)"><br>
+<input type="password" name="Password1" placeholder="Password" id="Password1" class="inputdata"><img id="toggler1" src="pass.png" onclick="change(1)"><br><!-- Toggling the visibility of passwords -->
 <p id="Error_Msg7" class="Errors">Password must have a minimum of 6 characters</p>
-<input type="password" name="Password2" placeholder="Confirm Password" id="Password2" class="inputdata"><img id="toggler2" src="pass.png" onclick="change(2)"><br>
+<input type="password" name="Password2" placeholder="Confirm Password" id="Password2" class="inputdata"><img id="toggler2" src="pass.png" onclick="change(2)"><br><!-- Toggling the visibility of passwords -->
 <p id="Error_Msg8" class="Errors">Make sure you have entered password correctly</p>
-<button type="button" class="inputdata" id="validateb" onclick="validate()">Validate</button>
-<input type="Submit" name="Submit_Button" id="Submit_Button" class="inputdata" >
+<button type="button" class="inputdata" id="validateb" onclick="validate()">Validate</button><!-- Validation  -->
+<input type="Submit" name="Submit_Button" id="Submit_Button" class="inputdata" ><!-- Submit button -->
 </form>
 <p id="payment"></p>
 </div>
 </div>
 <style type="text/css">
-	/*#try{
-		width:100%;
-	}*/
+	#Error_Msg8{
+		position: relative;
+		bottom: 39px;
+	}
+	#payment{
+		position: relative;
+		top:-33px;
+		right: 482px;
+		color: white;
+	}
 	#toggler1{
 		height: 20px;
 		width: 20px;
@@ -83,6 +90,7 @@
 		color:black;
 		position: relative;
 		left:48px;
+		bottom: 35px;
 	}
 	.inputdata{
 		margin-bottom: 5px;
@@ -147,10 +155,9 @@
 	#Submit_Button{
 	 	
 		display: none;
-		background-color: gray;
 		position: relative;
 		left:50px;
-		color: white;
+		color: black;
 		
 
 	}
@@ -186,7 +193,7 @@
 </style>
 <script type="text/javascript">
 		
-		function change(x)
+		function change(x) /*Function to toggle visibility of passwords*/
 		{
 			
 			var g=document.getElementById("Password"+x.toString())
@@ -201,10 +208,10 @@
 					document.getElementById("toggler"+x.toString()).src="pass.png";
 				}
 		}
-		function validate()
+		function validate() /*Validation of all input boxes*/
 	{
 		ctr=0;
-		if(document.getElementById('First_Name').value.length==0)
+		if(document.getElementById('First_Name').value.length==0) /*First name should not be empty*/
 				{
 					document.getElementById('Error_Msg').style.display="block";
 					document.getElementById('First_Name').style.border= "1px solid red";
@@ -216,7 +223,7 @@
 					document.getElementById('First_Name').style.border= "1px solid black";
 				}
 
-		if(document.getElementById('Last_Name').value.length==0)
+		if(document.getElementById('Last_Name').value.length==0) /*Last name should not be empty*/
 			{
 				document.getElementById('Error_Msg2').style.display="block";
 				document.getElementById('Last_Name').style.border= "1px solid red";
@@ -228,7 +235,7 @@
 					document.getElementById('Last_Name').style.border= "1px solid black";
 				}
 		
-		if(document.getElementById('Phone_Number').value.length==10)
+		if(document.getElementById('Phone_Number').value.length==10) /*Phone number must be of size exactly 10*/
 		{
 		
 			
@@ -243,7 +250,7 @@
 				ctr++;
 			}
 	
-		if(isNaN(document.getElementById('Phone_Number').value))
+		if(isNaN(document.getElementById('Phone_Number').value))/*Phone number be must a number*/
 		{
 				document.getElementById('Error_Msg5').style.display="block"
 				document.getElementById('Phone_Number').style.border= "1px solid red";
@@ -255,7 +262,7 @@
 						
 					}
 
-		if(isNaN(document.getElementById('Accomodation').value)||document.getElementById('Accomodation').value.length!=1)
+		if(isNaN(document.getElementById('Accomodation').value)||document.getElementById('Accomodation').value.length!=1)/*Can't have accomodation more than 10days */
 		{
 				document.getElementById('Error_Msg9').style.display="block"
 				document.getElementById('Accomodation').style.border= "1px solid red";
@@ -269,11 +276,12 @@
 
 
 		var emailchar=document.getElementById("EmailID").value;
-		if(emailchar.indexOf("@")<0 || emailchar.indexOf(".")<0)
+		if(emailchar.indexOf("@")<0 || emailchar.indexOf(".")<0) /*Email must follow the right rules*/
 			{
 				document.getElementById("Error_Msg6").style.display="block"
 					document.getElementById('EmailID').style.border= "1px solid red";
-				ctr++;}
+				ctr++;
+			}
 
 		else
 			{
@@ -292,7 +300,7 @@
 					}
 
 			}
-			if(document.getElementById("Password1").value.length<6)
+			if(document.getElementById("Password1").value.length<6) /*Passwords must have a minumum length of 6*/
 			{
 					document.getElementById("Error_Msg7").style.display="block"
 					document.getElementById('Password1').style.border= "1px solid red";
@@ -302,7 +310,7 @@
 					{
 						document.getElementById("Error_Msg7").style.display="none"
 						document.getElementById('Password1').style.border= "1px solid black";}
-			if(document.getElementById("Password2").value==document.getElementById("Password1").value && document.getElementById("Password1").length!=0)
+			if(document.getElementById("Password2").value==document.getElementById("Password1").value && document.getElementById("Password1").length!=0) /*Password and Confirmed password must be same */
 				{
 					document.getElementById("Error_Msg8").style.display="none"
 					document.getElementById('Password2').style.border= "1px solid black";
@@ -314,7 +322,7 @@
 					ctr++;
 				}
 
-		if(ctr==0)
+		if(ctr==0)/*Submit button appears only if there are no errors */
 			{
 				document.getElementById("Submit_Button").style.display="block"
 				document.getElementById("validateb").style.display="none";
@@ -325,7 +333,7 @@
 
 
 	}
-	function capitalize(x)
+	function capitalize(x) /*Capitalizing first letter*/
 	{
 		if(document.getElementById(x).value.length==1)
 		document.getElementById(x).value=document.getElementById(x).value.toUpperCase()
